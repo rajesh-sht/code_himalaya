@@ -1,0 +1,39 @@
+#message{
+    color: green;
+}
+
+.myform input{
+    height: 30px;
+    width: 25vw;
+    padding: 12px 14px;
+    font-size: 1.1em;
+    border: 2px solid black;
+    border-radius: 25px;
+    margin-left: 30px;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error{
+    color: red;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.myform label{
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+th,td{
+    border: solid black 3px;
+    padding: 10px 15px;   
+}
+
+table{
+    margin-bottom: 15px;
+
+}

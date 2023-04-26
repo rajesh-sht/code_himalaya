@@ -6,19 +6,29 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static './css/custom.css' %}">
         <title>Document</title>
-        <style>
-            th,
-            tr,
-            td {
-                border: 2px solid black;
-                height: 30px;
-                padding: 10px;
-            }
-        </style>
     </head>
     <body>
-        <h1 style="text-align: center; border-bottom: 5px solid black;">Basic Crud Options App</h1>
+        <h1 style="text-align: center; border-bottom: 5px solid black;">Basic Crud Option App</h1>
+        <div>
+            <nav class="navbar bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand">CRUD</a>
+                    <form class="d-flex"
+                          role="search"
+                          method="GET"
+                          action="{% url 'crud:search' %}">
+                        <input class="form-control me-2"
+                               type="search"
+                               placeholder="Search"
+                               name="search"
+                               aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
         {% block content %}
         {% endblock content %}
         <script src="{% static './js/bootrap.bundle.js' %}"></script>

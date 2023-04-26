@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container-fluid mt-2">
+        <div class="row">
+            <div class="col-md-12">
+                {% if messages %}
+                    <p>
+                        {% for message in messages %}<h1 id="message">{{ message }}</h1>{% endfor %}
+                    </p>
+                {% endif %}
+                <a class="btn btn-primary my-2"
+                   style="margin: auto;
+                          position: relative;
+                          float: left"
+                   href="{% url 'crud:create-user' %}"
+                   role="button">Add User</a>
+                <a class="btn btn-success"
+                   style="margin-top: 5px;
+                          float: right"
+                   href="{% url 'crud:user-list' %}"
+                   role="button">View User</a>
+                {% if users %}
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for d in users %}
+                                <tr>
+                                    <td>{{ d.id }}</td>
+                                    <td>{{ d.name }}</td>
+                                    <td>{{ d.phone }}</td>
+                                    <td>{{ d.address }}</td>
+                                    <td>
+                                        <a href="{% url 'crud:update-user' d.pk %}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'crud:delete-user' d.pk %}">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+                {% if users1 %}
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>Delete</th>
+                                <th>Update</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for d in users1 %}
+                                <tr>
+                                    <td>{{ d.id }}</td>
+                                    <td>{{ d.name }}</td>
+                                    <td>{{ d.phone }}</td>
+                                    <td>{{ d.address }}</td>
+                                    <td>
+                                        <a class="btn btn-outline-success" href="{% url 'crud:update-user' d.pk %}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger" href="{% url 'crud:delete-user' d.pk %}">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            </div>
+        </div>
+    {% endblock content %}

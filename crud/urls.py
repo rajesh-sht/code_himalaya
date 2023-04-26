@@ -24,4 +24,6 @@ urlpatterns = [
     path('create-user/', create_user, name='create-user'),
     path('update-user/<int:pk>/', update_user, name='update-user'),
     path('delete-user/<int:pk>/',  delete_user, name='delete-user'),
+    path('search', search, name='search'),
+
 ]

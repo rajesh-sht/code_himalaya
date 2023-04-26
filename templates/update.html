@@ -2,8 +2,15 @@
 {% block content %}
     <div class="container-fluid mt-4">
         <div class="row">
+            <div class="col-md-3"></div>
             <div class="col-md-6">
-                <form method="POST" style="border: 2px solid black; padding: 10px;">
+                <div>
+                    {% for message in messages %}<h1 id="message">{{ message }}</h1>{% endfor %}
+                </div>
+                <form method="POST"
+                      style="border: 2px solid black;
+                             padding: 10px;
+                             margin: auto">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="exampleInputEmail1">Name</label>
@@ -34,4 +41,5 @@
                     <button type="submit" class="btn btn-primary my-2">Update</button>
                 </form>
             </div>
+            <div class="col-md-3"></div>
         {% endblock content %}

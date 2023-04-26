@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <a class="btn btn-primary my-2"
+                   href="{% url 'crud:create-user' %}"
+                   role="button">Add User</a>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Delete</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for d in users %}
+                            <tr>
+                                <td>{{ d.id }}</td>
+                                <td>{{ d.name }}</td>
+                                <td>{{ d.phone }}</td>
+                                <td>{{ d.address }}</td>
+                                <td>
+                                    <a href="{% url 'crud:update-user' d.pk %}">Edit</a>
+                                </td>
+                                <td>
+                                    <a href="{% url 'crud:delete-user' d.pk %}">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <!-- Pagination -->
+                <div class='pagination justify-content-center'>
+                    {% if users.has_previous %}<a href='?page={{users.previous_page_number}}'>Previous</a>{% endif %}
+                    <span class='mx-4'>Page {{ users.number }} of {{ users.paginator.num_pages }}</span>
+                    {% if users.has_next %}<a href='?page={{users.next_page_number}}'>Next</a>{% endif %}
+                </div>
+                <!-- END Pagination -->
+            </div>
+        </div>
+    {% endblock content %}

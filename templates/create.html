@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <form method="POST"
+                      action=""
+                      style="border: 2px solid black;
+                             padding: 10px">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text"
+                               class="form-control"
+                               name="name"
+                               id="name"
+                               aria-describedby="emailHelp"
+                               placeholder="Enter name"
+                               required>
+                        <label for="exampleInputEmail1">Phone</label>
+                        <input type="text"
+                               class="form-control"
+                               id="phone"
+                               name="phone"
+                               aria-describedby="emailHelp"
+                               placeholder="Enter phone"
+                               required>
+                        <label for="exampleInputEmail1">Address</label>
+                        <input type="text"
+                               class="form-control"
+                               id="address"
+                               name="address"
+                               aria-describedby="emailHelp"
+                               placeholder="Enter address"
+                               required>
+                    </div>
+                    <button type="submit" class="btn btn-primary my-2">Submit</button>
+                    <a class="btn btn-primary"
+                       style="float: right;
+                              margin-top: 5px"
+                       href="{% url 'crud:user-list' %}"
+                       role="button">View User</a>
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+{% endblock content %}

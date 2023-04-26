@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
+        <title>Document</title>
+        <style>
+            th,
+            tr,
+            td {
+                border: 2px solid black;
+                height: 30px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align: center; border-bottom: 5px solid black;">Basic Crud Options App</h1>
+        {% block content %}
+        {% endblock content %}
+        <script src="{% static './js/bootrap.bundle.js' %}"></script>
+    </body>
+</html>
